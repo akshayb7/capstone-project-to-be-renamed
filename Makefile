@@ -20,6 +20,11 @@ modelsetup:
 	# mkdir -p app/models
 	python3 app/model_downloader.py
 
+dockerbuild:
+	sudo docker build -t sentiment -f Dockerfile .
+	
+dockerrun:
+	sudo docker run -p 8080:8080 sentiment
+
 lint:
 
-all: setup install lint
