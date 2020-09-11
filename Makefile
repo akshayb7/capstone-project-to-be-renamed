@@ -1,14 +1,15 @@
+#!/bin/bash
 ## The Makefile includes instructions on environment setup and lint tests
 
 setup:
-	# Create virtualenv (Windows)
-	virtualenv venv
+	# Create virtualenv
+	python3 -m venv venv
 	# Activate virtualenv
-	source venv/Scripts/activate
+	source venv/bin/activate
 
 activate:
 	# Activate virtualenv
-	source venv/Scripts/activate
+	source venv/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
