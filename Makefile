@@ -17,7 +17,7 @@ install:
 		pip install -r requirements.txt
 
 modelsetup:
-	mkdir -p app/models
+	# mkdir -p app/models
 	python3 app/model_downloader.py
 
 lint:
