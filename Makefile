@@ -16,6 +16,10 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 
+modelsetup:
+	mkdir models
+	python3 model_downloader.py
+
 lint:
 
 all: setup install lint
