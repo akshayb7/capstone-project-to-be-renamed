@@ -37,6 +37,15 @@ pipeline {
                 }
             }
         }
+        stage('Create Clusters Configuration File') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'aws-key') {
+                    sh '''
+                        aws eks --region us-east-2 update-kubeconfig --name sentiment-Clusters
+                    '''    
+                }
+            }
+        }
         /* stage('Delete kubernetes cluster'){
             steps {
                 withAWS(region:'us-east-2', credentials:'aws-key') {
