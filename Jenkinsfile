@@ -23,6 +23,8 @@ pipeline {
             steps { 
                 withAWS(region:'us-east-2', credentials:'aws-key'){
                     ecrLogin()
+                    sh 'docker tag akshayb7/sentiment:latest 537672174807.dkr.ecr.us-east-2.amazonaws.com/sentiment:latest'
+                    sh 'docker push 537672174807.dkr.ecr.us-east-2.amazonaws.com/sentiment:latest'
                 }
             }
         }
