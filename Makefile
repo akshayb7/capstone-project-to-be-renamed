@@ -27,4 +27,7 @@ dockerrun:
 	sudo docker run -p 8080:8080 sentiment
 
 lint:
+	pylint --disable=R,C,W1203,W1309,E0611 app/
+	sudo docker run --rm -i hadolint/hadolint < Dockerfile
+
 

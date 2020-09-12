@@ -2,6 +2,7 @@ FROM python:3.6.12-slim
 
 COPY requirements.txt requirements.txt
 
+# hadolint ignore=DL3013
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 

@@ -1,4 +1,4 @@
-from transformers import pipeline, AutoModelForTokenClassification, AutoTokenizer
+from transformers import pipeline
 
 class NLP:
     def __init__(self):
