@@ -27,6 +27,15 @@ pipeline {
                 }
             }
         }
+        stage('Create Clusters Configuration File') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'aws-key') {
+                    sh '''
+                        aws eks --region us-east-2 update-kubeconfig --name sentiment-Cluster
+                    '''    
+                }
+            }
+        }
         stage('Set kubectl context') {
             steps {
                 withAWS(region:'us-east-2', credentials:'aws-key') {
