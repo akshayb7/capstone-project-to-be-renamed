@@ -37,7 +37,7 @@ pipeline {
                 }
             }
         }
-        stage('Delete kubernetes cluster'){
+        /* stage('Delete kubernetes cluster'){
             steps {
                 withAWS(region:'us-east-2', credentials:'aws-key') {
                     sh '''
@@ -45,6 +45,6 @@ pipeline {
                     '''    
                 }
             }
-        }
+        } */
     }
 }

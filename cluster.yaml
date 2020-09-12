@@ -1,4 +1,4 @@
-apiVersion: esctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -14,4 +14,4 @@ nodeGroups:
       ssh:
         allow: True
         publicKeyName: linux-msi
-        
+
