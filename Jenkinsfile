@@ -45,5 +45,14 @@ pipeline {
                 }
             }
         }
+        stage('Rolling deploy to Kubernetes') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'aws-key') {
+                    sh '''
+                        kubectl apply -f kubernetes/deployments.yaml
+                    '''    
+                }
+            }
+        }
     }
 }
