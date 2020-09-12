@@ -12,9 +12,7 @@ pipeline {
             }
         }
         stage('Build docker image') {
-            steps {
                 img = docker.build("sentiment")
-            }
         }
     }
 }
