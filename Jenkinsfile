@@ -22,7 +22,7 @@ pipeline {
         stage('Push docker image to ECS') {
             steps { 
                 withAWS(region:'us-east-2', credentials:'aws-key'){
-                    sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 537672174807.dkr.ecr.us-east-2.amazonaws.com'
+                    sh 'docker login -u AWS -p $(aws ecr get-login-password --region us-east-2) 537672174807.dkr.ecr.us-east-2.amazonaws.com'
                     sh 'docker tag akshayb7/sentiment:latest 537672174807.dkr.ecr.us-east-2.amazonaws.com/sentiment:latest'
                     sh 'docker push 537672174807.dkr.ecr.us-east-2.amazonaws.com/sentiment:latest'
                 }
