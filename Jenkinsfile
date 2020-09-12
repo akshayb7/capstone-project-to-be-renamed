@@ -28,5 +28,23 @@ pipeline {
                 }
             }
         }
+        stage('Create kubernetes cluster') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'aws-key') {
+                    sh '''
+                        eksctl create cluster -f cluster.yaml
+                    '''    
+                }
+            }
+        }
+        stage('Delete kubernetes cluster'){
+            steps {
+                withAWS(region:'us-east-2', credentials:'aws-key') {
+                    sh '''
+                        eksctl delete cluster -f cluster.yaml
+                    '''    
+                }
+            }
+        }
     }
 }
