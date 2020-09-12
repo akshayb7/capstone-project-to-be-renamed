@@ -4,7 +4,7 @@ pipeline {
         stage('Lint code') {
             steps{
                 // sh 'python3 -m pylint --disable=R,C,W1203,W1309,E0611 app/*.py'
-                sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
+                sh 'sudo docker run --rm -i hadolint/hadolint < Dockerfile'
             }
         }
     }
