@@ -20,5 +20,15 @@ pipeline {
                 }
             }
         }
+        stage('Push docker image to DockerHub') {
+            steps {
+                script {
+                    docker.withRegistery('', dockerhubCredentials) {
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
     }
 }
