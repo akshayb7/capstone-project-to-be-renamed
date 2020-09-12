@@ -23,7 +23,7 @@ pipeline {
         stage('Push docker image to DockerHub') {
             steps {
                 script {
-                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: dockerhubCredentials]]) {
+                    withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) {
                         sh '''
                             docker push dockerImage
                         '''
