@@ -1,7 +1,6 @@
 pipeline {
     environment {
         imagename = 'akshayb7/sentiment'
-        dockerhubCredentials = 'dockerhub_credentials'
         dockerImage = ''
     }
 
@@ -20,14 +19,10 @@ pipeline {
                 }
             }
         }
-        stage('Push docker image to DockerHub') {
-            steps {
-                script {
-                    withDockerRegistry([ credentialsId: dockerhubCredentials, url: "" ]) {
-                        sh '''
-                            docker push dockerImage
-                        '''
-                    }
+        stage('Push docker image to ECS') {
+            steps { 
+                withAWS(region:'us-east-2', credentials:'aws-key'){
+                    ecrLogin()
                 }
             }
         }
