@@ -5,7 +5,7 @@ metadata:
     name: sentiment-app
     labels:
         app: sentiment-app
-    specs:
+    spec:
         type: LoadBalancer
         ports:
             - port: 8080
