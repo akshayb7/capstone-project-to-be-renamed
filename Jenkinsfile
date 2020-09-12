@@ -12,7 +12,9 @@ pipeline {
             }
         }
         stage('Build docker image') {
-                img = docker.build("sentiment")
+            steps {
+                sh 'docker build -t sentiment -f Dockerfile .'
+            }
         }
     }
 }
