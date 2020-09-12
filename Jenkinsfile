@@ -22,12 +22,11 @@ pipeline {
         }
         stage('Push docker image to DockerHub') {
             steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: dockerhubCredentials, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
-                    sh '''
-						docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-						docker push imagename
-					'''
-				}
+                script {
+                    docker.withRegistery('', dockerhubCredentials) {
+                        dockerImage.push()
+                    }
+                }
             }
         }
     }
