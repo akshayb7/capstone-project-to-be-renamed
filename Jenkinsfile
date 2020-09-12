@@ -1,6 +1,8 @@
 pipeline {
     environment {
+        imagename = 'akshayb7/sentiment'
         dockerhubCredentials = 'dockerhub_credentials'
+        dockerImage = ''
     }
 
     agent any
@@ -13,7 +15,9 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                sh 'docker build -t sentiment -f Dockerfile .'
+                script {
+                    dockerImage = docker.build imagename
+                }
             }
         }
     }
