@@ -5,13 +5,13 @@ metadata:
     name: sentiment-app
     labels:
         app: sentiment-app
-    spec:
-        type: LoadBalancer
-        ports:
-            - port: 8080
-              targetPort: 8080
-              protocol: TCP
-              name: sentiment-app
-        selector:
-            app: sentiment-app
+spec:
+    type: LoadBalancer
+    ports:
+        - port: 8080
+          targetPort: 8080
+          protocol: TCP
+          name: sentiment-app
+    selector:
+        app: sentiment-app
             
