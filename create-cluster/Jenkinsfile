@@ -14,7 +14,7 @@ pipeline {
             steps {
                 withAWS(region:'us-east-2', credentials:'aws-key') {
                     sh '''
-                        aws eks --region us-east-2 update-kubeconfig --name sentiment-Clusters
+                        aws eks --region us-east-2 update-kubeconfig --name sentiment-Cluster
                     '''    
                 }
             }
