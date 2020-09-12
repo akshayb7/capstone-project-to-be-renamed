@@ -22,8 +22,8 @@ spec:
         spec:
             containers:
                 - name: sentiment-app
-                    image: 537672174807.dkr.ecr.us-east-2.amazonaws.com/sentiment:latest
-                    ports: 
+                  image: 537672174807.dkr.ecr.us-east-2.amazonaws.com/sentiment:latest
+                  ports:
                     - containerPort: 8080
 
 
