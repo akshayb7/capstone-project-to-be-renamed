@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Service
+
+metadata:
+    name: sentiment-app
+    labels:
+        app: sentiment-app
+    specs:
+        type: LoadBalancer
+        ports:
+            - port: 8080
+              targetPort: 8080
+              protocol: TCP
+              name: sentiment-app
+        selector:
+            app: sentiment-app
+            

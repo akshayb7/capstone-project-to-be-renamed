@@ -36,5 +36,14 @@ pipeline {
                 }
             }
         }
+        stage('Set Load Balancer service for kubernetes') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'aws-key') {
+                    sh '''
+                        kubectl apply -f kubernetes/services.yaml
+                    '''    
+                }
+            }
+        }
     }
 }
